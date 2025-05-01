@@ -32,7 +32,6 @@ func _on_island_decay_timer_timeout() -> void :
 func _build_mode_request_signal() -> void : 
 	if not build_mode : 
 		build_mode = true
-		island_map.build_island_tile()
 	else : 
 		build_mode = false
 	print("Build Mode: ", build_mode)
