@@ -66,8 +66,6 @@ func build_island_tile() -> void :
 		var rand_tile = randi_range(0, ISLAND_TILES_DICT.size() - 1)
 		var atlas_coords = ISLAND_TILES_DICT[rand_tile]
 		island_tilemap_layer.set_cell(clicked_cell_coords, ISLAND_TILES_SOURCE_ID, atlas_coords)
-		print("Can place tile")
-	#island_tilemap_layer.erase_cell(clicked_cell_coords)
 	
 ## Checks if the clicked cell has at least 1 island tile in its neighbours
 func is_island_build_tile_valid(cell_coords : Vector2i, tilemap_layer : TileMapLayer) -> bool : 
@@ -80,13 +78,11 @@ func is_island_build_tile_valid(cell_coords : Vector2i, tilemap_layer : TileMapL
 			
 	return false
 	
-	
 func can_place_island_tile(cell_coords : Vector2i, tilemap_layer : TileMapLayer) -> bool :
-	# TODO: Only allow placeing adjacent to an already tile
 	return not has_all_surrounding_tiles(cell_coords, tilemap_layer) and is_island_build_tile_valid(cell_coords, tilemap_layer)
 	
-func decay_island(tiles_to_decay : int) -> void : 
-	for i in range(tiles_to_decay) : 
+func decay_island(num_tiles_to_decay : int) -> void : 
+	for i in range(num_tiles_to_decay) : 
 		var edge_tiles = get_edge_tiles(island_tilemap_layer)
 		var edge_tile_selected_index = randi_range(0, edge_tiles.size())
 		island_tilemap_layer.erase_cell(edge_tiles[edge_tile_selected_index])
