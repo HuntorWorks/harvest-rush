@@ -28,8 +28,7 @@ func is_tile_surrounded(cell_coords : Vector2i) -> bool :
 	
 func is_tile_surrounded_at_mouse_click() -> bool :
 	return is_tile_surrounded(get_clicked_cell_coords()) 
-	
-	
+		
 func is_edge_tile() -> bool : 
 	get_edge_tiles()
 	for tile_cell_coords in edge_tiles_ArrayList : 
@@ -44,3 +43,11 @@ func get_clicked_cell_coords() -> Vector2i :
 	
 func get_clicked_cell_tile_data(cell_coords : Vector2i = get_clicked_cell_coords()) -> TileData : 
 	return get_cell_tile_data(cell_coords)
+
+func can_place_tile_on(cell_coords : Vector2i, tilemap_layer : TileMapLayer) -> bool :
+	if get_cell_tile_data(cell_coords) == null and tilemap_layer.get_cell_tile_data(cell_coords) != null : 
+		#There is already a tile here
+		return true
+		
+	# Check if current tile selected, is ontop of another layer tile selected? 
+	return false

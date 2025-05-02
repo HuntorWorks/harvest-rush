@@ -7,6 +7,7 @@ var direction := Vector2.ZERO
 
 signal build_mode_request
 signal build_island_tile_request
+signal place_tile_request
 
 func _process(delta : float) -> void :
 	handle_input()
@@ -32,3 +33,6 @@ func handle_input() -> void :
 			
 	if Input.is_action_just_pressed("mouse_action") : 
 		build_island_tile_request.emit()
+		
+	if Input.is_action_just_pressed("mouse_action_2") : 
+		place_tile_request.emit()

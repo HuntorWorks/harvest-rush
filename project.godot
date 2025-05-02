@@ -20,6 +20,15 @@ config/icon="res://icon.svg"
 HuntorUtilities="*res://scripts/utils/HuntorUtils.gd"
 DebugDraw="*res://scripts/utils/DrawLine3D.gd"
 
+[file_customization]
+
+folder_colors={
+"res://assets/": "red",
+"res://scenes/": "green",
+"res://scripts/": "purple",
+"res://scripts/utils/": "blue"
+}
+
 [input]
 
 player_move_down={
@@ -50,6 +59,11 @@ build_mode_toggle={
 mouse_action={
 "deadzone": 0.2,
 "events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":0,"position":Vector2(0, 0),"global_position":Vector2(0, 0),"factor":1.0,"button_index":1,"canceled":false,"pressed":false,"double_click":false,"script":null)
+]
+}
+mouse_action_2={
+"deadzone": 0.2,
+"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":2,"position":Vector2(177, 16),"global_position":Vector2(186, 64),"factor":1.0,"button_index":2,"canceled":false,"pressed":true,"double_click":false,"script":null)
 ]
 }
 

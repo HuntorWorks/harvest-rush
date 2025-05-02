@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://v80lvfxxddda"]
+[gd_scene load_steps=16 format=4 uid="uid://v80lvfxxddda"]
 
 [ext_resource type="Script" uid="uid://hfbsdbct82hr" path="res://scripts/IslandManager.gd" id="1_0wfyh"]
 [ext_resource type="Texture2D" uid="uid://bdy8jso3bhxiv" path="res://assets/TinyRanch 8x8/TinyRanch_Tiles.png" id="1_o5qli"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://lji5ruxrxw3e" path="res://assets/TinyRanch 8x8/TinyRanch_Crops.png" id="3_tefeu"]
 [ext_resource type="Script" uid="uid://c62nctco5h2xp" path="res://scripts/GameManager.gd" id="4_tbgi4"]
 [ext_resource type="Script" uid="uid://bahe4x7dagvsi" path="res://scripts/Managers.gd" id="4_tefeu"]
+[ext_resource type="Script" uid="uid://hmndx2lfyjsn" path="res://scenes/FarmTileMap.gd" id="5_tipki"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0wfyh"]
 texture = ExtResource("1_o5qli")
@@ -152,6 +153,7 @@ script = ExtResource("3_o6xl0")
 
 [node name="FarmableTilemapLayer" type="TileMapLayer" parent="Map"]
 tile_set = SubResource("TileSet_85g3d")
+script = ExtResource("5_tipki")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(5, 5)
@@ -161,7 +163,7 @@ zoom = Vector2(5, 5)
 [node name="Managers" type="Node2D" parent="."]
 script = ExtResource("4_tefeu")
 
-[node name="GameManager" type="Node2D" parent="Managers" node_paths=PackedStringArray("player", "island_map")]
+[node name="GameManager" type="Node2D" parent="Managers" node_paths=PackedStringArray("player", "island_manager")]
 script = ExtResource("4_tbgi4")
 player = NodePath("../../Player")
-island_map = NodePath("../../Map")
+island_manager = NodePath("../../Map")
