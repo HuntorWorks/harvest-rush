@@ -84,11 +84,11 @@ static func find_node_by_script_class_name(root_node: Node, target_class_name: S
 ## @param node Node whose children will be searched.
 ## @param _name Name of the child to find (What its called in the Heirarchy).
 ## @returns Matching child node or null.
-static func get_child_node_by_name(node: Node, _name: String) -> Node:
-	if node == null:
+static func get_child_node_by_name(parent_node: Node, _name: String) -> Node:
+	if parent_node == null:
 		push_error("ArgumentNullException: node parameter is null")
 		return null
-	for child in node.get_children():
+	for child in parent_node.get_children():
 		if child.name == _name:
 			return child
 	return null

@@ -1,7 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://cjeuh0nn84jlr"]
+[gd_scene load_steps=11 format=3 uid="uid://cjeuh0nn84jlr"]
 
-[ext_resource type="Script" uid="uid://cgmbpe0hhiyb2" path="res://scenes/player/player.gd" id="1_dovo2"]
+[ext_resource type="Script" uid="uid://cgmbpe0hhiyb2" path="res://scenes/player/Player.gd" id="1_dovo2"]
 [ext_resource type="Texture2D" uid="uid://cgkh1bt4o7xhn" path="res://assets/TinyRanch 8x8/TinyRanch_Characters.png" id="2_gmlin"]
+[ext_resource type="Script" uid="uid://b571kiy2jtvty" path="res://scenes/player/Tool.gd" id="3_lvxji"]
+[ext_resource type="Texture2D" uid="uid://bpcccxfpa67mg" path="res://assets/TinyRanch 8x8/TinyRanch_Items.png" id="4_p47bc"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tefeu"]
 radius = 4.12311
@@ -47,9 +49,10 @@ animations = [{
 "speed": 4.0
 }]
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("tool_node")]
 script = ExtResource("1_dovo2")
 move_speed = 10.0
+tool_node = NodePath("Tool")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_tefeu")
@@ -58,3 +61,14 @@ shape = SubResource("CircleShape2D_tefeu")
 sprite_frames = SubResource("SpriteFrames_ya4ey")
 animation = &"player_idle"
 frame_progress = 0.0132551
+
+[node name="Tool" type="Node2D" parent="." node_paths=PackedStringArray("sprite")]
+script = ExtResource("3_lvxji")
+sprite = NodePath("Sprite2D")
+
+[node name="Sprite2D" type="Sprite2D" parent="Tool"]
+position = Vector2(-5, 0)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("4_p47bc")
+region_enabled = true
+region_rect = Rect2(0, 16, 8, 8)

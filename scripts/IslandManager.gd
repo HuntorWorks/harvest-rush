@@ -8,18 +8,6 @@ var farm_tilemap_layer : TileMapLayer
 
 var TILEMAP_LAYERS : Array[TileMapLayer]
 
-#const ISLAND_TILES_SOURCE_ID = 0
-#const ISLAND_TILES_DICT : Dictionary = {
-	#0 : Vector2i(0, 0),
-	#1 : Vector2i(1, 0), 
-	#2 : Vector2i(2, 0), 
-	#3 : Vector2i(3, 0),
-	#4 : Vector2i(0, 1), 
-	#5 : Vector2i(1, 1),
-	#6 : Vector2i(2, 1),
-	#7 : Vector2i(3, 1) 	
-#}
-
 func _ready() -> void : 
 	await get_tree().process_frame
 	game_manager = managers.GAME_MANAGER
@@ -33,9 +21,10 @@ func _ready() -> void :
 
 func connect_to_signals() -> void : 
 	pass
-	
+
+# Places farm tile.
 func place_tile() -> void : 
-	if farm_tilemap_layer.can_place_tile_on(farm_tilemap_layer.get_clicked_cell_coords(), island_tilemap_layer) : 
+	if farm_tilemap_layer.can_place_tile_on(farm_tilemap_layer.get_clicked_cell_coords(), island_tilemap_layer): 
 		farm_tilemap_layer.set_cell(farm_tilemap_layer.get_clicked_cell_coords(), farm_tilemap_layer.FARMLAND_TILES_SOURCE, farm_tilemap_layer.FARMLAND_TILES_DICT.get("normal"))
 		print("Placing Farm Tile")
 	

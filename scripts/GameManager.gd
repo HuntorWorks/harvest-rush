@@ -43,5 +43,5 @@ func _build_island_tile_request_signal() -> void :
 		island_manager.build_island_tile()
 		
 func _place_tile_request_signal() -> void : 
-	if build_mode : 
+	if build_mode and player.get_current_tool() == Tool.SelectedTool.HOE: 
 		island_manager.place_tile()
