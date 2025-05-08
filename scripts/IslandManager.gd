@@ -20,9 +20,14 @@ func _ready() -> void :
 	connect_to_signals()
 func connect_to_signals() -> void : 
 	pass
-
+	
+func irrigate_farmland_tile() -> void : 
+	# if farmland, irrigate
+	var tile_data = farm_tilemap_layer.get_cell_tile_data(farm_tilemap_layer.get_clicked_cell_coords())
+	print("DATA: ", tile_data)
+	
 # Places farm tile.
-func place_tile() -> void : 
+func place_farmland_tile() -> void : 
 	if farm_tilemap_layer.can_place_tile_on(farm_tilemap_layer.get_clicked_cell_coords(), island_tilemap_layer): 
 		farm_tilemap_layer.set_cell(farm_tilemap_layer.get_clicked_cell_coords(), farm_tilemap_layer.FARMLAND_TILES_SOURCE, farm_tilemap_layer.FARMLAND_TILES_DICT.get("normal"))
 		print("Placing Farm Tile")

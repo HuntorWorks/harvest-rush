@@ -13,21 +13,25 @@ func _ready() -> void:
 	
 func connect_to_signals() -> void : 
 	player.connect("build_mode_request", Callable(game_manager, "_toggle_build_mode"))
-	player.connect("interact_tile_request", Callable(self, "_on_interact_tile_request"))
+	player.connect("interact_request", Callable(self, "_on_interact_tile_request"))
 		
 func _on_place_tile_request() -> void : 
 	if game_manager.build_mode and player.get_current_tool() == Tool.SelectedTool.HOE: 
 		island_manager.place_tile()
 
-func _on_interact_tile_request() -> void : 
-	# if in build mode place island tiles and farmland
+func _on_interact_request() -> void : 
+	interact_tile()
+
+func interact_tile() -> void : 
 	if can_interact(): 
 		if game_manager.build_mode:
 			if player.get_current_tool() == Tool.SelectedTool.HOE : 
-				island_manager.place_tile() 
+				island_manager.place_farmland_tile() 
 				
 			island_manager.build_island_tile()
 			
+		if player.get_current_tool() == Tool.SelectedTool.WATERING_CAN : 
+			island_manager.irrigate_farmland_tile()
 	# if not in build mode, plant seeds in farmland, if seeds water, crop stage, harvest
 	
 func can_interact() -> bool : 

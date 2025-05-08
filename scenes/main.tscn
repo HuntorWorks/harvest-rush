@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://lji5ruxrxw3e" path="res://assets/TinyRanch 8x8/TinyRanch_Crops.png" id="3_tefeu"]
 [ext_resource type="Script" uid="uid://c62nctco5h2xp" path="res://scripts/GameManager.gd" id="4_tbgi4"]
 [ext_resource type="Script" uid="uid://bahe4x7dagvsi" path="res://scripts/managers.gd" id="4_tefeu"]
-[ext_resource type="Script" path="res://scenes/FarmTileMap.gd" id="5_tipki"]
+[ext_resource type="Script" uid="uid://hmndx2lfyjsn" path="res://scenes/FarmTileMap.gd" id="5_tipki"]
 [ext_resource type="Script" uid="uid://ct63eb5vgxyyk" path="res://scripts/controllers/Controllers.gd" id="9_choun"]
 [ext_resource type="Script" uid="uid://ccoxvsq24bbye" path="res://scripts/controllers/InteractionController.gd" id="10_ya4ey"]
 
@@ -44,7 +44,27 @@ resource_name = "BasePlot"
 texture = ExtResource("1_o5qli")
 texture_region_size = Vector2i(8, 8)
 10:0/0 = 0
+10:0/0/terrain_set = 0
+10:0/0/terrain = 0
+10:0/0/terrains_peering_bit/right_side = 0
+10:0/0/terrains_peering_bit/bottom_right_corner = 0
+10:0/0/terrains_peering_bit/bottom_side = 0
+10:0/0/terrains_peering_bit/bottom_left_corner = 0
+10:0/0/terrains_peering_bit/left_side = 0
+10:0/0/terrains_peering_bit/top_left_corner = 0
+10:0/0/terrains_peering_bit/top_side = 0
+10:0/0/terrains_peering_bit/top_right_corner = 0
 11:0/0 = 0
+11:0/0/terrain_set = 1
+11:0/0/terrain = 0
+11:0/0/terrains_peering_bit/right_side = 0
+11:0/0/terrains_peering_bit/bottom_right_corner = 0
+11:0/0/terrains_peering_bit/bottom_side = 0
+11:0/0/terrains_peering_bit/bottom_left_corner = 0
+11:0/0/terrains_peering_bit/left_side = 0
+11:0/0/terrains_peering_bit/top_left_corner = 0
+11:0/0/terrains_peering_bit/top_side = 0
+11:0/0/terrains_peering_bit/top_right_corner = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tipki"]
 texture = ExtResource("3_tefeu")
@@ -136,6 +156,12 @@ texture_region_size = Vector2i(8, 8)
 
 [sub_resource type="TileSet" id="TileSet_85g3d"]
 tile_size = Vector2i(8, 8)
+terrain_set_0/mode = 0
+terrain_set_0/terrain_0/name = "base_farmland 0"
+terrain_set_0/terrain_0/color = Color(0.328414, 0.419473, 0, 1)
+terrain_set_1/mode = 0
+terrain_set_1/terrain_0/name = "irrigated_farmland 0"
+terrain_set_1/terrain_0/color = Color(0, 0.145098, 1, 1)
 sources/0 = SubResource("TileSetAtlasSource_o6xl0")
 sources/1 = SubResource("TileSetAtlasSource_tipki")
 
