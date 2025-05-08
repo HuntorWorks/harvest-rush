@@ -18,7 +18,6 @@ func _ready() -> void :
 	TILEMAP_LAYERS.append(farm_tilemap_layer)
 	
 	connect_to_signals()
-
 func connect_to_signals() -> void : 
 	pass
 

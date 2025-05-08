@@ -1,7 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://cjeuh0nn84jlr"]
+[gd_scene load_steps=13 format=3 uid="uid://cjeuh0nn84jlr"]
 
 [ext_resource type="Script" uid="uid://cgmbpe0hhiyb2" path="res://scenes/player/player.gd" id="1_dovo2"]
+[ext_resource type="Script" uid="uid://bf24oyhs74g7p" path="res://scenes/player/indicator.gd" id="2_75vfm"]
 [ext_resource type="Texture2D" uid="uid://cgkh1bt4o7xhn" path="res://assets/TinyRanch 8x8/TinyRanch_Characters.png" id="2_gmlin"]
+[ext_resource type="Texture2D" uid="uid://bdy8jso3bhxiv" path="res://assets/TinyRanch 8x8/TinyRanch_Tiles.png" id="3_0owmy"]
 [ext_resource type="Script" path="res://scenes/player/Tool.gd" id="3_lvxji"]
 [ext_resource type="Texture2D" uid="uid://bpcccxfpa67mg" path="res://assets/TinyRanch 8x8/TinyRanch_Items.png" id="4_p47bc"]
 
@@ -49,13 +51,23 @@ animations = [{
 "speed": 4.0
 }]
 
-[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("tool_node")]
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("tool_node", "indicator")]
 script = ExtResource("1_dovo2")
 move_speed = 10.0
 tool_node = NodePath("Tool")
+indicator = NodePath("Indicator")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_tefeu")
+
+[node name="Indicator" type="Node2D" parent="."]
+script = ExtResource("2_75vfm")
+
+[node name="Sprite2D" type="Sprite2D" parent="Indicator"]
+texture = ExtResource("3_0owmy")
+centered = false
+region_enabled = true
+region_rect = Rect2(80, 8, 8, 8)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_ya4ey")

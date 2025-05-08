@@ -5,12 +5,13 @@ extends CharacterBody2D
 
 @export_category("Other")
 @export var tool_node : Node2D
+
 var has_tool = false
 
 var direction := Vector2.ZERO
 
 signal build_mode_request
-signal build_island_tile_request
+signal interact_tile_request
 signal place_tile_request
 
 
@@ -37,10 +38,11 @@ func handle_input() -> void :
 		build_mode_request.emit()
 			
 	if Input.is_action_just_pressed("mouse_action") : 
-		build_island_tile_request.emit()
+		interact_tile_request.emit()
 		
 	if Input.is_action_just_pressed("mouse_action_2") : 
-		place_tile_request.emit()
+		#place_tile_request.emit()
+		pass
 
 	if Input.is_action_just_pressed("tool_select_1") : 
 		if tool_node != null : 
@@ -51,3 +53,4 @@ func handle_input() -> void :
 
 func get_current_tool() -> Tool.SelectedTool:
 	return tool_node.current_tool
+	

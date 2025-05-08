@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://er2rywmdl05b"]
+
+[ext_resource type="Script" uid="uid://bf24oyhs74g7p" path="res://scenes/player/indicator.gd" id="1_5vh0y"]
+[ext_resource type="Texture2D" uid="uid://bdy8jso3bhxiv" path="res://assets/TinyRanch 8x8/TinyRanch_Tiles.png" id="2_trj4f"]
+
+[node name="Indicator" type="Node2D"]
+script = ExtResource("1_5vh0y")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-4, -4)
+texture = ExtResource("2_trj4f")
+centered = false
+offset = Vector2(4, 4)
+region_enabled = true
+region_rect = Rect2(80, 8, 8, 8)
